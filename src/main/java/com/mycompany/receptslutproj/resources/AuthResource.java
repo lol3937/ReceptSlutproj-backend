@@ -18,12 +18,12 @@ public class AuthResource {
 
     
     @GET
-    @Path("{key}")
+    @Path("{key")
     public Response getKey(PathParam ("key") String key){
         return Response.ok(credentialsBean.getProperty(key)).build();
     }
     
-    @GET
+    /*@GET
     public Response checkUser(@HeaderParam("authorization") String basicAuth) {
         Credentials credentials = credentialsBean.createCredentials(basicAuth);
         String token = credentialsBean.checkCredentials(credentials);
@@ -32,7 +32,7 @@ public class AuthResource {
         } else {
             return Response.status(Response.Status.UNAUTHORIZED).build();
         }
-    }
+    }*/
 
     
     @Path("/token")
