@@ -20,7 +20,7 @@ import javax.ejb.Stateless;
 @Stateless
 public class CredentialsBean {
 
-    //private static final Logger LOGGER = LoggerFactory.getLogger(CredentialsBean.class);
+    private static final Logger LOGGER = Logger.getLogger(name).getLogger(CredentialsBean.class);
 
     
     public String getProperty(String key) throws IOException {
@@ -56,7 +56,7 @@ public class CredentialsBean {
         return false;
     }
 
-    /*private static final SecureRandom secureRandom = new SecureRandom(); //threadsafe
+    private static final SecureRandom secureRandom = new SecureRandom(); //threadsafe
     private static final Base64.Encoder base64Encoder = Base64.getUrlEncoder(); //threadsafe
 
     
@@ -94,7 +94,7 @@ public class CredentialsBean {
     }
 
     //Kollar om user/password är rätt
-    public String checkCredentials(Credentials credentials) {
+    /*public String checkCredentials(Credentials credentials) {
         String token = "";
         try ( Connection connection = ConnectionFactory.getConnection()) {
             String hashedPassword = "";
@@ -113,8 +113,8 @@ public class CredentialsBean {
         }
         return token;
 
-    }*/
-
+    }
+*/
     public int saveCredentials(Credentials credentials) {
         try ( Connection connection = ConnectionFactory.getConnection()) {
             PreparedStatement stmt = connection.prepareStatement("INSERT INTO user (username, hash) VALUES(?, ?)");
