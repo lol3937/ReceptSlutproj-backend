@@ -57,12 +57,13 @@ public class ReceptResource {
         return Response.ok(ingredienser).build();
     }
     
+    /*funkar inte. säger att mängdbean hittas inte
     @GET
     @Path("mängd")
     public Response getMängd(){
         List<Mängd> mängder = mängdBean.getMängder();
         return Response.ok(mängder).build();
-    }
+    }*/
 
     @POST
     @Path("recept")
