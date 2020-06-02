@@ -2,6 +2,7 @@ package com.mycompany.receptslutproj.resources;
 
 import com.mycompany.receptslutproj.beans.CredentialsBean;
 import com.mycompany.receptslutproj.enteties.Credentials;
+import java.io.IOException;
 import javax.ejb.EJB;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
@@ -18,31 +19,11 @@ public class AuthResource {
 
     
     @GET
-    @Path("{key")
-    public Response getKey(PathParam ("key") String key){
+    @Path("{key}")
+    public Response getKey(@PathParam ("key") String key) throws IOException{
         return Response.ok(credentialsBean.getProperty(key)).build();
     }
-    
-    /*@GET
-    public Response checkUser(@HeaderParam("authorization") String basicAuth) {
-        Credentials credentials = credentialsBean.createCredentials(basicAuth);
-        String token = credentialsBean.checkCredentials(credentials);
-        if (!token.equals("")) {
-            return Response.ok(token).build();
-        } else {
-            return Response.status(Response.Status.UNAUTHORIZED).build();
-        }
-    }*/
 
-    
-    @Path("/token")
-    @GET
-    public Response verifyUser(@HeaderParam("authorization") String token) {
-        if (credentialsBean.verifyToken(token)) {
-            return Response.status(Response.Status.OK).build();
-        }
-        return Response.status(Response.Status.UNAUTHORIZED).build();
-    }
 
     
     @Path("/create")

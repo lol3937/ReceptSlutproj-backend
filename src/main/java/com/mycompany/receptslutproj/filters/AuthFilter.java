@@ -18,7 +18,7 @@ public class AuthFilter implements ContainerRequestFilter {
     //private static final Logger LOGGER = LoggerFactory.getLogger(CredentialsBean.class);
     @Override
     public void filter(ContainerRequestContext request) throws IOException {
-        /*if (!request.getMethod().equals("GET")) {
+        if (!request.getMethod().equals("GET")) {
             if (request.getHeaders().containsKey("Authorization") && !request.getHeaderString("Authorization").equals("")) {
                 String token = request.getHeaderString("Authorization");
                 try ( Connection connection = ConnectionFactory.getConnection()) {
@@ -34,6 +34,6 @@ public class AuthFilter implements ContainerRequestFilter {
             } else {
                 request.abortWith(Response.status(Response.Status.UNAUTHORIZED).build());
             }
-        }*/
+        }
     }
 }

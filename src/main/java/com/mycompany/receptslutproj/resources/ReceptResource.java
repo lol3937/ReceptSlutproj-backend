@@ -6,10 +6,8 @@
 package com.mycompany.receptslutproj.resources;
 
 import com.mycompany.receptslutproj.beans.IngrediensBean;
-import com.mycompany.receptslutproj.beans.MängdBean;
 import com.mycompany.receptslutproj.beans.ReceptBean;
 import com.mycompany.receptslutproj.enteties.Ingrediens;
-import com.mycompany.receptslutproj.enteties.Mängd;
 import com.mycompany.receptslutproj.enteties.Recept;
 import java.util.List;
 import javax.ejb.EJB;
@@ -32,9 +30,6 @@ public class ReceptResource {
 
     @EJB
     IngrediensBean ingrediensBean;
-    
-    /*@EJB
-    MängdBean mängdBean;*/
 
     @GET
     @Path("recepts")
@@ -56,14 +51,6 @@ public class ReceptResource {
         List<Ingrediens> ingredienser = ingrediensBean.getIngredienser(id);
         return Response.ok(ingredienser).build();
     }
-    
-    /*funkar inte. säger att mängdbean hittas inte
-    @GET
-    @Path("mängd")
-    public Response getMängd(){
-        List<Mängd> mängder = mängdBean.getMängder();
-        return Response.ok(mängder).build();
-    }*/
 
     @POST
     @Path("recept")

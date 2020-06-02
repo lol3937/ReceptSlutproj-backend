@@ -16,6 +16,7 @@ import javax.ejb.Stateless;
 
 @Stateless
 public class IngrediensBean {
+    //Metod för att hämta alla ingredienser
     public List<Ingrediens> getIngredienser(int id) {
         List<Ingrediens> ingredienser = new ArrayList<>();
         try ( Connection connection = ConnectionFactory.getConnection()) {
